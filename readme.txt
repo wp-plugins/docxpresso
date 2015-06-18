@@ -7,7 +7,7 @@ Contributors: No-nonsense Labs
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Docxpresso inserts content from a document file (.odt).
+"Copy and Paste" from MS Word, Libre Office or Open Office.
 
 == Description ==
 
