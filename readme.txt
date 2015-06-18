@@ -46,8 +46,6 @@ No screenshots available.
 
 This work is licensed under GPLv2 or later.
 
-== License Information Regarding Bundled Third-Party Software ==
-
 This plugin comes bundled with the D3 and C3 JavaScript libraries. D3 is
 distributed under the BSD license (http://d3js.org) and C3 is distributed under 
 the MIT license (http://c3js.org/). 
