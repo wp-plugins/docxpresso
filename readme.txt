@@ -68,7 +68,7 @@ non-commercial use.
 = May I use this plugin in any website, commercial or not? =
 Yes, there are no limits to that regard.
 = May I ask for support? =
-Yes, you can do so at [Docxpresso API](http://www.docxpresso.com "Generate dynamically all your documents online") but beware that support
+Yes, you may write in the forum or leave a message in [Docxpresso](http://www.docxpresso.com "Generate dynamically all your documents online") but beware that support
 is not (always) offered for free.
 
 == Screenshots ==
