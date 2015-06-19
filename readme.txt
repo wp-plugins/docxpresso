@@ -1,8 +1,8 @@
 === Docxpresso ===
-Tags: insert, content, document, html, css
+Tags: Word, Libre Office, Open Office, copy and paste, insert, content, document, html, css
 Requires at least: 3.5
 Tested up to: 4.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 Contributors: No-nonsense Labs
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -73,7 +73,9 @@ is not (always) offered for free.
 
 == Screenshots ==
 
-No screenshots available.
+1. **Docxpresso button** - just clicking on it you will be able to upload or choose a document from the media popup window. A shortcode will
+be inserted into your text editor with all the required data.
+2. **Sample post** - this is just a sample result of a document with charts and formatted text.
 
 == Changelog ==
 
