@@ -27,7 +27,7 @@ if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'save')) {
         <li>Click on the <strong>Docxpresso</strong> button located over the rich text editor.</li>
         <li>The media window will open and will let you upload the required .odt file or used a previously uploaded .odt file.</li>
         <li>After choosing a file click on the <strong>Insert</strong> button.</li>
-        <li>A [docxpresso] shotcode will be included with all the required data. </li>     
+        <li>A [docxpresso] shortcode will be included with all the required data. </li>     
         <li>You may then add or not any additional content to your post but do not modify the contents of the Docxpresso shortcode.</li>
     </ol>
     
