@@ -28,12 +28,14 @@
 .h5p_page div {
     margin-bottom: 10pt;
 }
-
+.h5p_page img {
+    margin: 0;
+    padding: 0;
+}
 .h5p_page ul ul {
     margin-top: 0;
     margin-bottom: 0;
 }
-
 .h5p_page li {
     margin-top: 0;
     margin-bottom: 0;
