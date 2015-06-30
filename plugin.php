@@ -4,7 +4,7 @@
   Plugin Name: Docxpresso
   Plugin URI: http://www.docxpresso.com/plugins/wp-docxpresso
   Description: Insert content coming from an Office file (.odt)
-  Version: 1.0
+  Version: 1.1
   Author: No-nonsense Labs
   Author URI: http://www.docxpresso.com
  */
