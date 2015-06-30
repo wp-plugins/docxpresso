@@ -321,7 +321,7 @@ class ODF2HTML5
     public function __construct($doc, $path, $options)
     {          
         //initialize variables
-        $this->_prefix = 'h5p_page_' . uniqid() . ' ';
+        $this->_prefix = 'h5p_' . uniqid() . ' ';
         $this->_rawPath = $path;
         $this->_download = true;
         if (!isset($options['parseLayout']) || $options['parseLayout'] == true) {
@@ -342,7 +342,10 @@ class ODF2HTML5
         }
         //take into account external CSS props
         try {
-            $this->_externalCSS = \file_get_contents($CSSPath);
+            $extCSS = \file_get_contents($CSSPath);
+            $this->_externalCSS = \str_replace('.h5p_page',
+                                               'div#' . \trim($this->_prefix),
+                                               $extCSS);
             if (empty($this->_externalCSS)) {
                 throw new \Exception('Error while trying to get global styles');
             }
@@ -2806,7 +2809,7 @@ class ODF2HTML5
                 //we should replace the margins by paddings for proper browser
                 //rendering
                 $css = $value['page'];
-                $this->_CSS .= '.' . $this->_prefix . 'div.' . $key . ' {' . $css . '}' . PHP_EOL; 
+                $this->_CSS .= 'div#' . $this->_prefix . 'div.' . $key . ' {' . $css . '}' . PHP_EOL; 
             }
             $width = self::extractSingleProperty('data-width', $css);
             if (!empty($width)) {
@@ -2820,19 +2823,10 @@ class ODF2HTML5
             if ($posFontSize === false && isset($this->_defaultFontSize)) {
                 $value .= 'font-size: ' . $this->_defaultFontSize . ';';
             }
-            $this->_CSS .= ' .' . $this->_prefix  . $key . ' {' . $value . '}' . PHP_EOL; 
+            $this->_CSS .= ' div#' . $this->_prefix  . $key . ' {' . $value . '}' . PHP_EOL; 
         }
-        $html = '<!DOCTYPE html>' . PHP_EOL;
-        $html .= '<html>' . PHP_EOL;
-        $html .= '<head>' . PHP_EOL;
-        $metadata = '<meta charset="utf-8">' . PHP_EOL;   
-        if (isset($options['meta']) && $options['meta']) {
-            $metadata .= $this->generateMetadata();
-        }
-        $html .= $metadata;
-        //bootstrap test
-        //$html .= '<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">' . PHP_EOL;
-        
+        $html = '';
+
         if ($this->_singleFile) {
             $html .= '<style>' . PHP_EOL . $this->_CSS . PHP_EOL . '</style>';
         } else {
@@ -2848,7 +2842,6 @@ class ODF2HTML5
             //create the link to the CSS file
             $html .= '<link href="' . $path . '" rel="stylesheet"/>' . PHP_EOL;
         }       
-        $html .= '</head>' . PHP_EOL;
         
         //HTML
         
@@ -2873,11 +2866,11 @@ class ODF2HTML5
                 $section = $this->_body->createElement('section');
                 $section->setAttribute('id', 'section_' . $k);
                 if (isset($layout[$master]['layout'])) {
-                    $class = $this->_prefix . 'h5p_page h5p_page_' . $layout[$master]['layout'];
+                    $class = 'h5p_page h5p_page_' . $layout[$master]['layout'];
                 } else if (isset($layout['default'])) {
-                    $class = $this->_prefix . 'h5p_page h5p_page_' . $layout['default'];
+                    $class = 'h5p_page h5p_page_' . $layout['default'];
                 } else {
-                    $class = $this->_prefix . 'h5p_page';
+                    $class = 'h5p_page';
                 }
                 $section->setAttribute('class', $class);
                 $div = $this->_body->createElement('div');
@@ -2938,12 +2931,13 @@ class ODF2HTML5
                                      $htmlBody);
         } 
         $html .= $htmlBody;
-        $html .= '</html>';
-        
-        //write the HTML file
-        $fp = \fopen($this->_rawPath, 'w');
-            \fwrite($fp, $html);
-            \fclose($fp);
+
+        $html = \str_replace('<body>', 
+                             '<div id="' . \trim($this->_prefix) . '">',
+                             $html);
+        $html = \str_replace('</body>', 
+                             '</div>',
+                             $html);
         
         if ($this->_download) {
             return $html;
