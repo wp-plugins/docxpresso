@@ -2,7 +2,7 @@
 Tags: Word, Libre Office, Open Office, copy and paste, insert, content, document, html, css
 Requires at least: 3.5
 Tested up to: 4.2
-Stable tag: 1.0.1
+Stable tag: 1.1
 Contributors: No-nonsense Labs
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,7 +34,7 @@ design and format:
 Moreover you may also create your own forms or even export your **charts**.
 
 This plugin is a spin-off of our [Docxpresso API](http://www.docxpresso.com "Generate dynamically all your documents online")
-library designed to generate all kind of dynamical documents on your web server (PDF, Word, ODT, RTF) that is free for
+library designed to generate all kind of dynamical documents on your web server (PDF, Word, ODT, RTF). The API is free for
 non-commercial use.
 
 = How to use it =
@@ -78,6 +78,11 @@ be inserted into your text editor with all the required data.
 2. **Sample post** - this is just a sample result of a document with charts and formatted text.
 
 == Changelog ==
+
+= 1.1 =
+
+* Improvements in selector specificity to avoid conflicts among styles
+* New added default styles
 
 = 1.0.1 =
 
