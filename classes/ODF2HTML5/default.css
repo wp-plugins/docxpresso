@@ -1,0 +1,59 @@
+.h5p_page {
+    box-sizing: content-box !important;
+}
+.h5p_page *{
+    float: none;
+}
+/*to make sure that floating elements are always inside the document bounds*/
+.h5p_page:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* give zero default top and bottom paddings for paragraphs in tables*/
+.h5p_page table p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.h5p_page table {
+    border: none;
+}
+.h5p_page td {
+    vertical-align: top;
+    border: none;
+}
+.h5p_page th {
+    vertical-align: top;
+    border: none;
+}
+.h5p_page div {
+    margin-bottom: 10pt;
+}
+
+.h5p_page img {
+    margin: 0;
+    padding: 0;
+}
+
+.h5p_page ul ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.h5p_page li {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* This is a spacial class designed to remove unwanted bullets when a li has
+ul as its first child*/
+.h5p_page .removeBullet:before {
+    content: none !important;
+}
+
+
+
+
+
