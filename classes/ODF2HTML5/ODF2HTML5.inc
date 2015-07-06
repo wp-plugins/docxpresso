@@ -579,7 +579,8 @@ class ODF2HTML5
              
         //get the office:text node to start the parsing
         $content = $this->_dom['content.xml'];
-        $root = $content->getElementsByTagName('text')->item(0);
+        $ns = 'urn:oasis:names:tc:opendocument:xmlns:office:1.0';
+        $root = $content->getElementsByTagNameNS($ns, 'text')->item(0);
         $rootChilds = $root->childNodes;
         $body = $this->_body->documentElement;
         $n = 0;
@@ -2906,7 +2907,9 @@ class ODF2HTML5
         if (\count($this->_charts)){
             //TODO: load the javascript and CSS in a proper way :-)
             $addScripts = '<style>';
-            $addScripts .= \file_get_contents(dirname(__FILE__) . ' /../../lib/vendor/js/c3.css');
+			$c3CSS = \file_get_contents(dirname(__FILE__) . ' /../../lib/vendor/js/c3.css');
+			$c3CSS = \str_replace('.h5p_page', 'div#' . $this->_prefix . ' .h5p_page', $c3CSS);
+            $addScripts .= $c3CSS;
             $addScripts .= '</style>';
             $addScripts .= '<script>';
             $addScripts .= \file_get_contents(dirname(__FILE__) . ' /../../lib/vendor/js/c3.js');

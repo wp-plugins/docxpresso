@@ -2,7 +2,7 @@
 Tags: Word, Libre Office, Open Office, copy and paste, insert, content, document, html, css
 Requires at least: 3.5
 Tested up to: 4.2
-Stable tag: 1.1
+Stable tag: 1.2
 Contributors: No-nonsense Labs
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -78,6 +78,10 @@ be inserted into your text editor with all the required data.
 2. **Sample post** - this is just a sample result of a document with charts and formatted text.
 
 == Changelog ==
+
+= 1.2 =
+
+* Improvements in chart rendering
 
 = 1.1 =
 
